@@ -24,13 +24,17 @@ def connect():
         print(db_version)
        
 	    # close the communication with the PostgreSQL
-        cur.close()
+        #cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+    
+    return conn, cur
+    '''
     finally:
         if conn is not None:
             conn.close()
             print('Database connection closed.')
-            
+    '''
+
 if __name__ == '__main__':
     connect()
